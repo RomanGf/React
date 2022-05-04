@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Card, CardImg  , CardText, CardBody, CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
-class DishDetail extends Component {
 
-    renderDish(dish) {
+    function RenderDish(dish) {
         return (
             <Card>
                 <div className='d-flex flex-md-row flex-column'>
@@ -14,13 +13,13 @@ class DishDetail extends Component {
                             <CardText>{dish.description}</CardText>
                         </CardBody>
                     </div>
-                    {this.renderComments(dish.comments)}
+                    {RenderComments(dish.comments)}
                 </div>
             </Card>
          )
     }
 
-    renderComments(comments) {
+    function RenderComments(comments) {
         if (comments != null) {
             return(
                 <CardBody>
@@ -44,9 +43,13 @@ class DishDetail extends Component {
         }
     }
 
-    render() {
-        return this.renderDish(this.props.dish)            
+
+    const DishDetail = (props) => {
+        return RenderDish(props.dish)
     }
-}
+    // render() {
+    //     return this.renderDish(this.props.dish)            
+    // }
+
 
 export default DishDetail;
