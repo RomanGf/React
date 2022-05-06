@@ -1,9 +1,11 @@
 import Menu from './MenuComponent';
 import { DISHES } from '../shared/dishes';
 import React ,{ Component } from 'react';
+import Home from './HomeComponent';
 import DishDetail from "./DishdetailComponent";
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 class Main extends Component {
 
@@ -12,13 +14,10 @@ class Main extends Component {
 
         this.state = {
             dishes:DISHES,
-            selectedDish:null
         }
     }
 
-    onDishSelected(dishId) {
-        this.setState({selectedDish: dishId});
-    }
+    
 
     
 
@@ -36,14 +35,24 @@ class Main extends Component {
     }
 
     render() {
+
+        const HomePage = () => {
+            return (
+                <Home />
+            );
+        }
+
         return (
         <div>
             <Header />
-            <Menu dishes={this.state.dishes} 
-                onClick={(dishId) => this.onDishSelected(dishId)}/>
-            <div>
+            <Switch>
+                <Route path='/home' component={HomePage} />
+                <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
+                <Redirect to='/home' />
+            </Switch>
+            {/* <div>
             {this.renderDishDetail(this.state.selectedDish)}
-            </div>
+            </div> */}
             <Footer />    
         </div>
         )
