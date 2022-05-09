@@ -1,22 +1,7 @@
 import React from "react";
 import { Card, CardImgOverlay, CardImg, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import DishDetail from "./DishdetailComponent";
 import { Link } from 'react-router-dom';
 
-
-
-    // renderDish(dish) ;{
-    //     if (dish != null) {
-    //         return (
-    //             <DishDetail dish={this.state.selectedDish}></DishDetail>
-    //         );
-    //     }
-    //     else {
-    //         return (
-    //             <div></div>
-    //         );
-    //     }
-    // }
 
     function RenderMenuItem ({dish, onClick}) {
         return (
