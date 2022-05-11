@@ -25,21 +25,7 @@ class Main extends Component {
 
     }
 
-    // renderDishDetail(dishId){
-    //     if (dishId != null) {
-    //         return(
-    //         <DishDetail 
-    //         dish={this.props.dishes.filter((d) => d.id === dishId)[0]} />)
-    //     }
-    //     else {
-    //         return (
-    //             <div></div>
-    //         )
-    //     }
-    // }
-
     render() {
-
         const HomePage = () => {
             return (
                 <Home dish={this.props.dishes.filter((dish) => dish.featured)[0]}
